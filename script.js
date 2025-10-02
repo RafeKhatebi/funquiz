@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
           feedbackElem.style.color = "#e74c3c";
           feedbackElem.style.background = "#f8d7da";
         } else if (selectedOption.value === "b" && userName === "") {
-          feedbackElem.textContent = "نام خود را بنویسید!";
+          feedbackElem.textContent = "نام ... را بنویسید !";
           feedbackElem.style.color = "#e74c3c";
           feedbackElem.style.background = "#f8d7da";
         } else {
