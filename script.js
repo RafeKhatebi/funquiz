@@ -65,7 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (currentStep === 1) {
         // Welcome screen
         canProceed = true;
-      } else if (currentStep === 2 || currentStep === 3 || currentStep === 4 || currentStep === 5) {
+      } else if (
+        currentStep === 2 ||
+        currentStep === 3 ||
+        currentStep === 4 ||
+        currentStep === 5
+      ) {
         // Radio button questions
         const questionName = `q${currentStep - 1}`;
         const selectedOption = document.querySelector(
@@ -163,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     funnyDownloadLink.addEventListener("click", (e) => {
       e.preventDefault();
       alert(
-        "😂 دوست چه فکر کردید؟\n\nاستاد .... رایگان درس می‌دهد و سوالات را هم می‌دهد!\n\nحالا بروید درس بخوانید و بعد بیایید 📚😄"
+        "😂 دوست چه فکر کردید؟\n\nاستاد .... رایگان درس می‌دهد و سوالات را هم می‌ده  خیر است بیا این هم رمز 1111!\n\nحالا بروید درس بخوانید و بعد بیایید 📚😄"
       );
     });
   }
