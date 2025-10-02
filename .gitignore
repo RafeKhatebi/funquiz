@@ -1,0 +1,20 @@
+# فایل‌های سیستمی
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# فایل‌های ویرایشگر
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# فایل‌های موقت
+*.tmp
+*.log
+
+# اگه می‌خوای فایل‌های دانلودی رو تو GitHub نذاری، این خط رو uncomment کن:
+# files/*.zip
+# files/*.rar
+# files/*.7z

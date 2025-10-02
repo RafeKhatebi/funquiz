@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="یک کوئیز سرگرم‌کننده برای دوستان - بدون درخواست اطلاعات شخصی. چند سوال جالب جواب بدهید و به جایزه برسید!" />
+    <meta name="keywords" content="کوئیز فارسی، بازی آنلاین، سرگرمی، کوئیز هرات" />
+    <meta name="author" content="ساخته شده در هرات" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="یک کوئیز جالب - برای دوستان" />
+    <meta property="og:description" content="چند سوال جالب جواب بده و به جایزه برس! بدون درخواست اطلاعات شخصی." />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="یک کوئیز جالب - برای دوستان" />
+    <meta property="twitter:description" content="چند سوال جالب جواب بده و به جایزه برس!" />
+    
+    <title>یک کوئیز جالب!</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header with Progress, Score and Timer -->
+    <div class="header">
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-text" id="progress-text">مرحله 1 از 5</span>
+      </div>
+      <div class="stats">
+        <div class="score-box">
+          <span class="icon">🏆</span>
+          <span>امتیاز: <strong id="score">0</strong></span>
+        </div>
+        <div class="timer-box">
+          <span class="icon">⏱️</span>
+          <span>زمان: <strong id="timer">0:00</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Step 1: Welcome -->
+      <div id="step-1" class="step active">
+        <div class="emoji">🎉</div>
+        <h1>خوش آمدید دوست!</h1>
+        <p>درس خواندن؟ نه! آمدید که یک چیزهای خوب ببرید!</p>
+        <p class="subtitle">چند سوال جالب جواب بدهید تا به گنج برسید...</p>
+        <button class="next-btn" data-next="2" aria-label="رفتن به مرحله بعدی">بزن که بریم! 🚀</button>
+      </div>
+
+      <!-- Step 2: Question 1 -->
+      <div id="step-2" class="step">
+        <div class="emoji">📚</div>
+        <h2>کدام بهانه را بیشتر می‌زنی که نیایی به صنف؟</h2>
+        <div class="options">
+          <label
+            ><input type="radio" name="q1" value="a" /> والله خواب ماندم
+            استاد!</label
+          >
+          <label
+            ><input type="radio" name="q1" value="b" /> ترافیک بود، باور
+            کنید!</label
+          >
+          <label
+            ><input type="radio" name="q1" value="c" /> برق قطع بود، نتوانستم
+            بیایم آنلاین (در حالی که صنف حضوری است 😄)</label
+          >
+          <label
+            ><input type="radio" name="q1" value="d" /> یک کار مهم داشتم، باور
+            کنید!</label
+          >
+        </div>
+        <p class="feedback" role="alert" aria-live="polite"></p>
+        <div class="button-group">
+          <button class="back-btn" data-prev="1" aria-label="بازگشت به مرحله قبل">← بازگشت</button>
+          <button class="next-btn" data-next="3" aria-label="رفتن به مرحله بعدی">بعدی ➡️</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Question 2 -->
+      <div id="step-3" class="step">
+        <div class="emoji">🤔</div>
+        <h2>
+          اگر یک روز صبح بیدار شوی و ببینی موهایت خیلی بد شده، چه کار می‌کنی؟
+        </h2>
+        <div class="options">
+          <label
+            ><input type="radio" name="q2" value="a" /> یک کلاه می‌زنم و می‌روم
+            بیرون!</label
+          >
+          <label
+            ><input type="radio" name="q2" value="b" /> می‌گویم مد جدید است، شما
+            نمی‌فهمید!</label
+          >
+          <label
+            ><input type="radio" name="q2" value="c" /> خانه می‌مانم، با کسی هم
+            حرف نمی‌زنم.</label
+          >
+          <label
+            ><input type="radio" name="q2" value="d" /> می‌روم سلمانی فوری یک
+            کاری می‌کنم!</label
+          >
+        </div>
+        <p class="feedback" role="alert" aria-live="polite"></p>
+        <div class="button-group">
+          <button class="back-btn" data-prev="2" aria-label="بازگشت به مرحله قبل">← بازگشت</button>
+          <button class="next-btn" data-next="4" aria-label="رفتن به مرحله بعدی">بعدی ➡️</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Question 3 -->
+      <div id="step-4" class="step">
+        <div class="emoji">☕</div>
+        <h2>بهترین جای هرات برای خوردن چای کجاست؟</h2>
+        <div class="options">
+          <label
+            ><input type="radio" name="q3" value="a" /> چایخانه‌های کهنه
+            شهر</label
+          >
+          <label
+            ><input type="radio" name="q3" value="b" /> کنار دریای هریرود</label
+          >
+          <label
+            ><input type="radio" name="q3" value="c" /> خانه، با دوستان!</label
+          >
+          <label
+            ><input type="radio" name="q3" value="d" /> هر جا که دوستان خوب
+            باشند!</label
+          >
+        </div>
+        <p class="feedback" role="alert" aria-live="polite"></p>
+        <div class="button-group">
+          <button class="back-btn" data-prev="3" aria-label="بازگشت به مرحله قبل">← بازگشت</button>
+          <button class="next-btn" data-next="5" aria-label="رفتن به مرحله بعدی">بعدی ➡️</button>
+        </div>
+      </div>
+
+      <!-- Step 5: Challenge -->
+      <div id="step-5" class="step">
+        <div class="emoji">🔐</div>
+        <h2>چالش نهایی: کد مخفی را بزنید!</h2>
+        <p class="hint">
+          معروف‌ترین جمله برنامه‌نویسان وقتی کدشان کار می‌کند چیست؟
+        </p>
+        <select id="secret-code" class="select-box" aria-label="انتخاب کد مخفی">
+          <option value="">یکی را انتخاب کنید...</option>
+          <option value="کار میکنه دست نزن">کار میکنه دست نزن</option>
+          <option value="باگ دارد">باگ دارد</option>
+          <option value="چرا کار نمیکند">چرا کار نمیکند</option>
+          <option value="دوست برو بخواب">دوست برو بخواب</option>
+        </select>
+        <p class="feedback" role="alert" aria-live="polite"></p>
+        <div class="button-group">
+          <button class="back-btn" data-prev="4" aria-label="بازگشت به مرحله قبل">← بازگشت</button>
+          <button class="next-btn" data-next="6" aria-label="بررسی کد مخفی">بررسی کنید ✓</button>
+        </div>
+      </div>
+
+      <!-- Step 6: Final -->
+      <div id="step-6" class="step">
+        <div class="emoji success">🎊</div>
+        <h1>آفرین دوست! خیلی زرنگ هستی!</h1>
+        <p>حالا فایل‌ها را بردارید و بروید تا پشیمان نشدم! 😄</p>
+        <a
+          href="./files/zip-fun.zip"
+          class="download-btn"
+          id="real-download-link"
+          download
+          >دانلود فایل‌ها 📥</a
+        >
+        <!-- 
+                روش ۲: اگه لینک مستقیم داری (مثل Google Drive, Dropbox):
+                <a href="https://drive.google.com/your-link" class="download-btn" target="_blank">دانلود فایل‌ها 📥</a>
+                
+                روش ۳: اگه تو GitHub قرار دادی:
+                <a href="https://github.com/username/repo/raw/main/files.zip" class="download-btn">دانلود فایل‌ها 📥</a>
+            -->
+        <a href="#" class="download-btn" id="funny-download-link"
+          >دانلود جایزه! 📥</a
+        >
+        <button class="share-btn" id="share-btn" aria-label="اشتراک‌گذاری نتیجه با دوستان">📤 اشتراک‌گذاری با دوستان</button>
+        <p class="final-note">موفق باشید دوست! 🌟</p>
+        <div class="final-stats">
+          <p>⏱️ زمان شما: <strong id="final-time">0:00</strong></p>
+          <p>🏆 امتیاز نهایی: <strong id="final-score">0</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        این یک شوخی سالم است — لطفاً به حریم خصوصی دوستانتان احترام بگذارید. 💚
+      </p>
+      <p class="footer-small">ساخته شده با ❤️ در هرات</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
