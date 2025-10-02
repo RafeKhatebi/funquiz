@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     q2: "آره دیگر، همین‌طور بهتر است! 👍",
     q3: "عالی است! چای با دوستان همیشه خوب است! ☕",
     q4: "عالی! همه آنها صدای زیبایی دارند",
+    q5: "طرز تفکرت جالبه 😄",
     default: "برویم ببینیم بعدی چیست!",
   };
 
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Update Progress
   function updateProgress(step) {
-    const totalSteps = 6;
+    const totalSteps = 7;
     const progress = (step / totalSteps) * 100;
     progressFill.style.width = `${progress}%`;
     progressText.textContent = `مرحله ${step} از ${totalSteps}`;
@@ -89,6 +90,29 @@ document.addEventListener("DOMContentLoaded", () => {
           feedbackElem.style.background = "#f8d7da";
         }
       } else if (currentStep === 6) {
+        // Question 5 with text input
+        const selectedOption = document.querySelector(
+          'input[name="q5"]:checked'
+        );
+        const nameInput = document.getElementById("funny-name");
+        const userName = nameInput.value.trim();
+
+        if (!selectedOption) {
+          feedbackElem.textContent = "یک گزینه را انتخاب کنید!";
+          feedbackElem.style.color = "#e74c3c";
+          feedbackElem.style.background = "#f8d7da";
+        } else if (selectedOption.value === "b" && userName === "") {
+          feedbackElem.textContent = "نام خود را بنویسید!";
+          feedbackElem.style.color = "#e74c3c";
+          feedbackElem.style.background = "#f8d7da";
+        } else {
+          feedbackElem.textContent = feedbackMessages.q5;
+          feedbackElem.style.color = "#27ae60";
+          feedbackElem.style.background = "#d4edda";
+          addScore(20);
+          canProceed = true;
+        }
+      } else if (currentStep === 7) {
         // Secret code challenge
         const selectElement = document.getElementById("secret-code");
         const userInput = selectElement.value.trim();
@@ -119,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
             updateProgress(nextStep - 1);
 
             // Stop timer and show final stats on last step
-            if (nextStep === 7) {
+            if (nextStep === 8) {
               clearInterval(timerInterval);
               document.getElementById("final-time").textContent =
                 timerElement.textContent;
@@ -168,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
     funnyDownloadLink.addEventListener("click", (e) => {
       e.preventDefault();
       alert(
-        "😂 دوست چه فکر کردید؟\n\nاستاد .... رایگان درس می‌دهد و سوالات را هم می‌ده  خیر است بیا این هم رمز 1111!\n\nحالا بروید درس بخوانید و بعد بیایید 📚😄"
+        "😂 دوست چه فکر کردید؟\n\nاستاد .... رایگان درس می‌دهد و سوالات را هم می‌ده  خیر است بیا این هم رمز 1111  !\n\nحالا بروید درس بخوانید و بعد بیایید 📚😄"
       );
     });
   }
