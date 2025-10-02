@@ -45,7 +45,7 @@
         <div class="progress-bar">
           <div class="progress-fill" id="progress-fill"></div>
         </div>
-        <span class="progress-text" id="progress-text">مرحله 1 از 5</span>
+        <span class="progress-text" id="progress-text">مرحله 1 از 6</span>
       </div>
       <div class="stats">
         <div class="score-box">
@@ -194,8 +194,45 @@
         </div>
       </div>
 
-      <!-- Step 5: Challenge -->
+      <!-- Step 5: Question 4 -->
       <div id="step-5" class="step">
+        <div class="emoji">🎵</div>
+        <h2>کی صدای خوب دارد به ضنف قرآن شریف را سیب میخواند؟</h2>
+        <div class="options">
+          <label
+            ><input type="radio" name="q4" value="a" /> قاری باعث</label
+          >
+          <label
+            ><input type="radio" name="q4" value="b" /> داکتر سهیل</label
+          >
+          <label
+            ><input type="radio" name="q4" value="c" /> اینجینر سمیع الله</label
+          >
+          <label
+            ><input type="radio" name="q4" value="d" /> همه درست است</label
+          >
+        </div>
+        <p class="feedback" role="alert" aria-live="polite"></p>
+        <div class="button-group">
+          <button
+            class="back-btn"
+            data-prev="4"
+            aria-label="بازگشت به مرحله قبل"
+          >
+            ← بازگشت
+          </button>
+          <button
+            class="next-btn"
+            data-next="6"
+            aria-label="رفتن به مرحله بعدی"
+          >
+            بعدی ➡️
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 6: Challenge -->
+      <div id="step-6" class="step">
         <div class="emoji">🔐</div>
         <h2>چالش نهایی: کد مخفی را بزنید!</h2>
         <p class="hint">
@@ -212,19 +249,19 @@
         <div class="button-group">
           <button
             class="back-btn"
-            data-prev="4"
+            data-prev="5"
             aria-label="بازگشت به مرحله قبل"
           >
             ← بازگشت
           </button>
-          <button class="next-btn" data-next="6" aria-label="بررسی کد مخفی">
+          <button class="next-btn" data-next="7" aria-label="بررسی کد مخفی">
             بررسی کنید ✓
           </button>
         </div>
       </div>
 
-      <!-- Step 6: Final -->
-      <div id="step-6" class="step">
+      <!-- Step 7: Final -->
+      <div id="step-7" class="step">
         <div class="emoji success">🎊</div>
         <h1>آفرین دوست! خیلی هوشیار هستی!</h1>
         <p>حالا فایل‌ها را بردارید و بروید تا پشیمان نشدم! 😄</p>
