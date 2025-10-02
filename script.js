@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
     funnyDownloadLink.addEventListener("click", (e) => {
       e.preventDefault();
       alert(
-        "😂 دوست چه فکر کردید؟\n\nاستاد همراز رایگان درس می‌دهد و سوالات را هم می‌دهد!\n\nحالا بروید درس بخوانید و بعد بیایید 📚😄"
+        "😂 دوست چه فکر کردید؟\n\nاستاد .... رایگان درس می‌دهد و سوالات را هم می‌دهد!\n\nحالا بروید درس بخوانید و بعد بیایید 📚😄"
       );
     });
   }
