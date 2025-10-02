@@ -6,7 +6,9 @@
 
 body {
     font-family: 'Vazirmatn', sans-serif;
-    background: #f8f9fa;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
     color: #2c3e50;
     display: flex;
     flex-direction: column;
@@ -20,6 +22,20 @@ body {
     position: relative;
     padding: 10px;
     padding-top: 120px;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 
@@ -69,7 +85,8 @@ body {
     flex-wrap: wrap;
 }
 
-.score-box, .timer-box {
+.score-box,
+.timer-box {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -77,20 +94,23 @@ body {
     color: #333;
 }
 
-.score-box .icon, .timer-box .icon {
+.score-box .icon,
+.timer-box .icon {
     font-size: 1.2rem;
 }
 
-.score-box strong, .timer-box strong {
+.score-box strong,
+.timer-box strong {
     color: #2c3e50;
     font-size: 1.1rem;
 }
 
 .container {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
     padding: 30px 40px;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.5);
     max-width: 650px;
     width: 90%;
     max-height: 85vh;
@@ -99,16 +119,57 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid #e9ecef;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .emoji {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 10px;
+    animation: bounce 2s ease-in-out infinite;
+    display: inline-block;
 }
 
 .emoji.success {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    animation: celebrate 1s ease-in-out;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes celebrate {
+    0% {
+        transform: scale(0) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.3) rotate(180deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(360deg);
+    }
 }
 
 .step {
@@ -206,7 +267,8 @@ h2 {
     border-radius: 8px;
 }
 
-input[type="text"], .select-box {
+input[type="text"],
+.select-box {
     width: 85%;
     padding: 14px 18px;
     border: 2px solid #dee2e6;
@@ -218,7 +280,8 @@ input[type="text"], .select-box {
     cursor: pointer;
 }
 
-input[type="text"]:focus, .select-box:focus {
+input[type="text"]:focus,
+.select-box:focus {
     border-color: #2c3e50;
     outline: none;
     box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
@@ -232,12 +295,14 @@ input[type="text"]:focus, .select-box:focus {
     flex-wrap: wrap;
 }
 
-.next-btn, .download-btn, .share-btn {
-    background: #2c3e50;
+.next-btn,
+.download-btn,
+.share-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #ffffff;
     border: none;
     padding: 12px 32px;
-    border-radius: 8px;
+    border-radius: 12px;
     font-family: 'Vazirmatn', sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -245,22 +310,53 @@ input[type="text"]:focus, .select-box:focus {
     text-decoration: none;
     display: inline-block;
     letter-spacing: 0.3px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.next-btn::before,
+.download-btn::before,
+.share-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.next-btn:hover::before,
+.download-btn:hover::before,
+.share-btn:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .back-btn {
-    background: transparent;
-    color: #6c757d;
-    border: 2px solid #dee2e6;
+    background: rgba(255, 255, 255, 0.9);
+    color: #2c3e50;
+    border: 2px solid rgba(255, 255, 255, 0.5);
     padding: 12px 32px;
-    border-radius: 8px;
+    border-radius: 12px;
     font-family: 'Vazirmatn', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
-.next-btn:hover, .download-btn:hover, .share-btn:hover {
-    background: #1a252f;
+.next-btn:hover,
+.download-btn:hover,
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
 
 .back-btn:hover {
@@ -268,7 +364,9 @@ input[type="text"]:focus, .select-box:focus {
     border-color: #adb5bd;
 }
 
-.next-btn:active, .download-btn:active, .share-btn:active {
+.next-btn:active,
+.download-btn:active,
+.share-btn:active {
     background: #1a252f;
 }
 
@@ -309,15 +407,20 @@ input[type="text"]:focus, .select-box:focus {
 footer {
     margin-top: 25px;
     margin-bottom: 20px;
-    color: #6c757d;
+    color: #ffffff;
     font-size: 0.9rem;
     z-index: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
 }
 
 .footer-small {
     font-size: 0.8rem;
     margin-top: 8px;
-    color: #adb5bd;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Mobile Styles */
@@ -336,7 +439,8 @@ footer {
         font-size: 0.85rem;
     }
 
-    .score-box, .timer-box {
+    .score-box,
+    .timer-box {
         font-size: 0.85rem;
     }
 
@@ -373,13 +477,17 @@ footer {
         font-size: 0.9rem;
     }
 
-    input[type="text"], .select-box {
+    input[type="text"],
+    .select-box {
         width: 100%;
         font-size: 0.95rem;
         padding: 10px;
     }
 
-    .next-btn, .download-btn, .share-btn, .back-btn {
+    .next-btn,
+    .download-btn,
+    .share-btn,
+    .back-btn {
         padding: 10px 20px;
         font-size: 0.9rem;
     }
