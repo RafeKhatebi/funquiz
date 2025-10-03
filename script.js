@@ -1,14 +1,15 @@
+// Quiz application main functionality
 document.addEventListener("DOMContentLoaded", () => {
+  // DOM elements
   const steps = document.querySelectorAll(".step");
   const nextButtons = document.querySelectorAll(".next-btn");
   const backButtons = document.querySelectorAll(".back-btn");
-
-  // Progress, Score and Timer elements
   const progressFill = document.getElementById("progress-fill");
   const progressText = document.getElementById("progress-text");
   const scoreElement = document.getElementById("score");
   const timerElement = document.getElementById("timer");
 
+  // Quiz state variables
   let currentScore = 0;
   let startTime = Date.now();
   let timerInterval;
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const secretCode = "کار میکنه دست نزن";
 
+  // Start quiz timer
   function startTimer() {
     timerInterval = setInterval(() => {
       const elapsed = Math.floor((Date.now() - startTime) / 1000);
@@ -33,19 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 
+  // Update progress bar and text
   function updateProgress(step) {
     const totalSteps = 7;
     progressFill.style.width = `${(step / totalSteps) * 100}%`;
     progressText.textContent = `مرحله ${step} از ${totalSteps}`;
   }
 
+  // Add points to current score
   function addScore(points) {
     scoreElement.textContent = currentScore += points;
   }
 
-  // Start timer when page loads
+  // Initialize timer on page load
   startTimer();
 
+  // Handle next button clicks
   nextButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const currentStepElem = button.closest(".step");
@@ -55,10 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let canProceed = false;
 
-      // --- Validation Logic ---
+      // Validate current step before proceeding
       if (currentStep === 1) {
-        // Welcome screen
-        canProceed = true;
+        canProceed = true; // Welcome screen - no validation needed
       } else if (
         currentStep === 2 ||
         currentStep === 3 ||
@@ -146,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Back button functionality
+  // Handle back button clicks
   backButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const currentStepElem = button.closest(".step");
@@ -158,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
         prevStepElem.classList.add("active");
         updateProgress(prevStep - 1);
 
-        // Reset timer and score if going back to step 1
+        // Reset quiz if returning to start
         if (prevStep === 1) {
           currentScore = 0;
           scoreElement.textContent = "0";
@@ -170,11 +174,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Real download button - downloads the file
+  // Download buttons functionality
   const realDownloadLink = document.getElementById("real-download-link");
-  // This button works normally and downloads the file
+  // Real download button works normally
 
-  // Funny download button - shows joke message
+  // Fake download button with joke message
   const funnyDownloadLink = document.getElementById("funny-download-link");
   if (funnyDownloadLink) {
     funnyDownloadLink.addEventListener("click", (e) => {
@@ -185,13 +189,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Share button functionality
+  // Share results functionality
   const shareBtn = document.getElementById("share-btn");
   if (shareBtn) {
     shareBtn.addEventListener("click", () => {
       const shareText = `من این کوئیز جالب رو تموم کردم! 🎉\n⏱️ زمان: ${timerElement.textContent}\n🏆 امتیاز: ${currentScore}\n\nتو هم امتحان کن!`;
 
-      // Check if Web Share API is available
+      // Try native share API first
       if (navigator.share) {
         navigator
           .share({
@@ -201,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
           })
           .catch((err) => console.log("Error sharing:", err));
       } else {
-        // Fallback: Copy to clipboard
+        // Fallback: copy to clipboard
         navigator.clipboard
           .writeText(shareText + "\n" + window.location.href)
           .then(() => {
