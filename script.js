@@ -24,30 +24,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const secretCode = "کار میکنه دست نزن";
 
-  // Start Timer
   function startTimer() {
     timerInterval = setInterval(() => {
       const elapsed = Math.floor((Date.now() - startTime) / 1000);
       const minutes = Math.floor(elapsed / 60);
       const seconds = elapsed % 60;
-      timerElement.textContent = `${minutes}:${seconds
-        .toString()
-        .padStart(2, "0")}`;
+      timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
     }, 1000);
   }
 
-  // Update Progress
   function updateProgress(step) {
     const totalSteps = 7;
-    const progress = (step / totalSteps) * 100;
-    progressFill.style.width = `${progress}%`;
+    progressFill.style.width = `${(step / totalSteps) * 100}%`;
     progressText.textContent = `مرحله ${step} از ${totalSteps}`;
   }
 
-  // Add Score
   function addScore(points) {
-    currentScore += points;
-    scoreElement.textContent = currentScore;
+    scoreElement.textContent = currentScore += points;
   }
 
   // Start timer when page loads
@@ -141,18 +134,13 @@ document.addEventListener("DOMContentLoaded", () => {
           if (nextStepElem) {
             nextStepElem.classList.add("active");
             updateProgress(nextStep - 1);
-
-            // Stop timer and show final stats on last step
             if (nextStep === 8) {
               clearInterval(timerInterval);
-              document.getElementById("final-time").textContent =
-                timerElement.textContent;
+              document.getElementById("final-time").textContent = timerElement.textContent;
               document.getElementById("final-score").textContent = currentScore;
             }
           }
-          if (feedbackElem) {
-            feedbackElem.textContent = "";
-          }
+          feedbackElem.textContent = "";
         }, 500);
       }
     });
